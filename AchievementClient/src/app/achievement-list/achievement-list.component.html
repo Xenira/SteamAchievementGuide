@@ -1,0 +1,17 @@
+<div *ngIf="achievements.length == 0">
+  <h2>Game is not running or has no achievements.</h2>
+</div>
+<div *ngIf="achievements?.length > 0">
+  <h2>{{game}}</h2>
+  <md-grid-list cols="4" rowHeight="128px">
+    <md-grid-tile *ngFor="let achievement of achievements">
+      <md-card>
+        <md-card-header>
+          <img md-card-avatar [src]="achievement.achieved == 1 ? achievement?.icon : achievement?.icongray">
+          <md-card-title>{{achievement.hidden == 1 ? "[HIDDEN] " : ""}}{{achievement.name}}</md-card-title>
+          <md-card-subtitle>{{achievement.description}}</md-card-subtitle>
+        </md-card-header>
+      </md-card>
+    </md-grid-tile>
+  </md-grid-list>
+</div>
